@@ -41,8 +41,6 @@ while True:
         for handslms in result.multi_hand_landmarks: # MULTI_HAND_LANDMARKS a list of LANDMARK objects | MULTI_HAND_WORLD_LANDMARKS is a list of the actual normalized coordinates | MULTI_HANDEDNESS is which hand it is
             for lm in handslms.landmark: #this provides normalized coords
                 landmarks.append([int(lm.x * x), int(lm.y * y)])
-                #mpDraw.draw_landmarks(frame, handslms, mpHands.HAND_CONNECTIONS)
-                #mpDraw.draw_landmarks(bg, handslms, mpHands.HAND_CONNECTIONS)
         orderedLandmarks = calculateCollisions.orderedLandmarks(landmarks) #ordered landmark format = [[[0x, 0y], [1x, 1y]...], [[0x, 0y], [1x, 1y]....]....]
 
         for segment in orderedLandmarks: #draws the lines between the circles of the hand
