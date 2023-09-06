@@ -1,5 +1,6 @@
 import cv2
 import mediapipe as mp
+import numpy as np
 from threadedCam import threadedCam
 from calculateCollisions import calculateCollisions
 from Ball import Ball
@@ -19,17 +20,19 @@ ball = Ball(100, 300, 12, 10, "moving")
 
 while True:
 
-    bg = cv2.imread("image.png")
-
     frame = cap.read()
 
     frame = cv2.resize(frame, None, None, fx = 0.3, fy = 0.3, interpolation = cv2.INTER_LANCZOS4)
-    y, x, _ = frame.shape
 
     frame =  cv2.flip(frame, 1)
+
+    y, x, _ = frame.shape
+
     framergb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
     result = hands.process(framergb)
+
+    bg = np.zeros((y, x, 3), dtype = np.uint8)
 
     landmarks = []
 
