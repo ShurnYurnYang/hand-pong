@@ -16,7 +16,7 @@ cap = threadedCam(0).start()
 
 sequence_landmark_list = []
 
-ball = Ball(100, 300, 12, 10, "moving")
+ball = Ball(100, 300, 7, 5, "moving")
 
 while True:
 
@@ -48,16 +48,16 @@ while True:
                 if(index != (len(segment) - 1)):
                     pt1 = (value[0], value[1])
                     pt2 = (segment[index + 1][0], segment[index + 1][1])
-                    cv2.line(bg, pt1, pt2, (255, 255, 255), 5)
+                    cv2.line(bg, pt1, pt2, (255, 255, 255), 3)
        
         for item in landmarks: #draws the circles that make up the hand
             cv2.circle(bg, (item[0], item[1]), 5, (0, 0, 255), -1) 
                                                   #B, G, R
 
-    touched = calculateCollisions.checkCollision(ball.posX, ball.posY, 20, landmarks)
+    touched = calculateCollisions.checkCollision(ball.posX, ball.posY, 10, landmarks)
     ball.updateBall(bg, touched)
 
-    cv2.line(bg, (500, 0), (500, 600), (255, 255, 255), 3)
+    cv2.line(bg, (288, 0), (288, 324), (255, 255, 255), 3)
     #cv2.imshow("Output", frame)
     cv2.imshow("Output", bg)
 

@@ -11,15 +11,13 @@ class calculateCollisions:
        if segmentLength == 0:
            return math.sqrt((h - x1)**2 + (k - y1)**2) - r
        
-       dotProduct = (h - x1) * (x2 - x1) + (k - y1) * (y2 - y1)
-       
        t = max(0, min(1, ((h - x1) * (x2 - x1) + (k - y1) * (y2 - y1)) / segmentLength))
        projection_x = x1 + t * (x2 - x1)
        projection_y = y1 + t * (y2 - y1)
 
        distance = math.sqrt((h - projection_x)**2 + (k - projection_y)**2) - r
 
-       if distance < r / 1.5:
+       if distance < r:
            return True
        else:
            return False
