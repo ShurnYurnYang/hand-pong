@@ -24,7 +24,7 @@ while True:
     frame = cap.read()
 
     frame = cv2.resize(frame, None, None, fx = 0.3, fy = 0.3, interpolation = cv2.INTER_LANCZOS4)
-    x, y, c = frame.shape
+    y, x, _ = frame.shape
 
     frame =  cv2.flip(frame, 1)
     framergb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -37,7 +37,7 @@ while True:
         
         for handslms in result.multi_hand_landmarks: # MULTI_HAND_LANDMARKS a list of LANDMARK objects | MULTI_HAND_WORLD_LANDMARKS is a list of the actual normalized coordinates | MULTI_HANDEDNESS is which hand it is
             for lm in handslms.landmark: #this provides normalized coords
-                landmarks.append([int(lm.x * 1000), int(lm.y * 600)])
+                landmarks.append([int(lm.x * x), int(lm.y * y)])
                 #mpDraw.draw_landmarks(frame, handslms, mpHands.HAND_CONNECTIONS)
                 #mpDraw.draw_landmarks(bg, handslms, mpHands.HAND_CONNECTIONS)
         orderedLandmarks = calculateCollisions.orderedLandmarks(landmarks) #ordered landmark format = [[[0x, 0y], [1x, 1y]...], [[0x, 0y], [1x, 1y]....]....]
