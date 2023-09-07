@@ -32,3 +32,9 @@ CV Pong is a recreation of the classic game 'Pong' on the OpenCV platform. CV Po
 - Interacts as expected with Pong game mechanics, logic, and physics
   
 ![box](examples/gameplay.gif)
+
+## Potential Improvements
+1. Implement a threaded approach to some tasks such as collision checking and game logic
+2. Replace native Python loops with faster approaches such as directly adding arrays
+3. Perform micro-optimizations by replacing native Python methods with optimized libraries such as NumPy
+4. Rewrite some code structures to improve performance (e.g. unnecessarily ordering the landmarks again)
