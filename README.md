@@ -12,10 +12,23 @@ CV Pong is a recreation of the classic game 'Pong' on the OpenCV platform. CV Po
 
 ## Examples
 ### Single-hand landmark detection and skeleton drawing
+- Demonstrates tracking of a single hand throughout compound movements
+- Successfully draws tracking landmarks and hand skeleton based on data from the model
+
 ![box](examples/single-hand-tracking.gif)
 ### Two-hand landmark detection and skeleton drawing
+- Adds increased complexity to the case in the form of another hand
+- Tracks both hands through various fast compound movements
+- Draws landmarks and skeletons of both opposing hands
+  
 ![box](examples/two-hand-tracking.gif)
 ### Two-player game condition hand tracking
+- Simulates game conditions and complexity by tracking two hands from two different people
+- Demonstrates ability to draw graphics on various backgrounds
+
 ![box](examples/two-hand-tracking-game.gif)
 ### Full gameplay
+- Combines previously mentioned abilities into full-fledged gameplay level tracking
+- Interacts as expected with Pong game mechanics, logic, and physics
+  
 ![box](examples/gameplay.gif)
